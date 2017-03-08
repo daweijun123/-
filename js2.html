@@ -24,18 +24,29 @@ var aqiData = [
   ["西安", 100]
 ];
 
-(function () {
+ (function() {
+          function sort1(a,b){
+          	if(a>b)
+          		return -1;
+          	else
+          		return 1;
+          
+        }
+        aqiData.sort(sort1);
+        var list=document.getElementById('aqi-list');
+        var nub=1;
+        for(i=0;i<aqiData.length;i++){
+        	if(aqiData[i][1]>60){
+        		var number=document.createElement('li');
+        		number.innerHTML="第"+nub+"名:"+aqiData[i][0]+aqiData[i][1];
+        		list.appendChild(number);
+        		nub++;
+        	}
+        }
+        
 
-
-  for (var i = aqiData.length - 1; i >= 0; i--) {
-  	var air[i][1]=aqiData[i][1];
-  	if(air[i][1]>60){
-  		var biaodan=document.getElementById("aqi-list");
-  		biaodan=air[i][0];
-  	}
-  };
-
-})();
+          
+        })();
 
 </script>
 </body>
